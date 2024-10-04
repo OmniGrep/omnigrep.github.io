@@ -1,189 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Depl ID: AKfycbwfwZFqy0EvFUSUMn-a103ckit8G_Q6AyxZ9yTQzs8RtC_oTGvzFcZKTyMrluSyE0aD
-  Script URL:
-  https://script.google.com/macros/s/AKfycbwfwZFqy0EvFUSUMn-a103ckit8G_Q6AyxZ9yTQzs8RtC_oTGvzFcZKTyMrluSyE0aD/exec -->
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OmniGrep - Software Engineering in the Intelligence Age</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
-  <style>
-    @keyframes gradientBG {
-      0% {
-        background-position: 0% 50%;
-      }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniGrep - Next Generation Software Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
 
-      50% {
-        background-position: 100% 50%;
-      }
+        .logo-image {
+            display: block;
+            margin: 0 auto 2rem;
+            max-width: 30%;
+            height: auto;
+            width: auto;
+            max-height: 40%;
+        }
 
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+    
+        :root {
+            --background: #000000; /* Assuming this is your body background color */
+            --text: #FFFFFF;
+            --secondary-text: #A0AEC0;
+            --accent-color: #64B5F6;
+            --button-bg: #333333;
+            --button-hover: #4A4A4A;
+            --input-bg: rgba(255, 255, 255, 0.1);
+            --primary-gradient: linear-gradient(90deg, #2563EB, #3B82F6);
+        }
 
-    body {
-      font-family: 'Libre Baskerville', serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(-45deg, #111, #333, #666, #999);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .content {
-      text-align: center;
-      padding: 20px;
-    }
+        body, html {
+            font-family: 'Libre Franklin', sans-serif;
+            background-color: var(--background);
+        }
 
-    .logo {
-      max-width: 150px;
-      margin-bottom: 20px;
-      filter: invert(1);
-    }
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      color: white;
-    }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(9, 9, 9, 0.8);
+            backdrop-filter: blur(10px);
+        }
 
-    .tagline {
-      font-size: 1.4rem;
-      margin-bottom: 30px;
-      font-style: italic;
-    }
+        .logo {
+            color: white !important;
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+            -webkit-text-fill-color: white !important;
+        }
 
-    .tagline a {
-      color: #4dabf7;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .button {
-      font-family: Arial, sans-serif;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-    .tagline a:hover {
-      color: #339af0;
-    }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
 
-    .button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-    }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
 
-    .button:hover {
-      background-color: #ddd;
-    }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    #waitlistForm {
-      margin-top: 20px;
-    }
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
 
-    #emailInput {
-      padding: 12px;
-      width: 250px;
-      border: none;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      font-size: 16px;
-    }
+        .nowrap {
+            white-space: nowrap;
+        }
 
-    #emailInput::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
+        .accent {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
 
-    #waitlistMessage {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+        p.lead {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
 
-    @media (max-width: 600px) {
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-      .button {
-        width: 200px;
-        margin-bottom: 10px;
-      }
-    }
-  </style>
-</head>
+        input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--secondary-text);
+            background: var(--input-bg);
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
 
-<body>
-  <div class="content">
-    <img src="assets/dalle_logo.webp" alt="OmniGrep Logo" class="logo">
-    <h1>OmniGrep</h1>
-    <p class="tagline">software engineering tools for the <a href="https://ia.samaltman.com/" target="_blank">intelligence
-        age</a></p>
-    <div class="cta-buttons">
-      <a href="https://cal.com/svineet/omnigrep-demo-call" target="_blank" class="button">Book a Demo</a>
-      <a href="#" class="button" id="waitlistButton">Join Waitlist</a>
+        input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: var(--button-bg);
+            border: none;
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        .logos-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            position: relative;
+        }
+
+        .logos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        .logo-item {
+            width: 150px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .logos-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .hero {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+
+            .logo-item {
+                width: 120px;
+                height: 50px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 5vw, 3.5rem);
+            }
+        }
+
+        .highlight {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #2563EB; /* Fallback color */
+        }
+        .highlight a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: #2563EB; /* Underline color */
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        body {
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .site-header {
+            border-bottom: 1px solid #ccc;
+            padding: .5em 1em;
+        }
+        
+        .site-header::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .site-identity {
+            float: left;
+        }
+        
+        .site-identity h1 {
+            font-size: 1.5em;
+            margin: .7em 0 .3em 0;
+            display: inline-block;
+        }
+        
+        .site-identity img {
+            max-width: 55px;
+            float: left;
+            margin: 0 10px 0 0;
+        }
+        
+        .site-navigation {
+            float: right;
+        }
+        
+        .site-navigation ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .site-navigation li {
+            display: inline-block;
+            margin: 1.4em 1em 1em 1em;
+        }
+        
+        .site-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--background);
+            color: white;
+            border: none; /* Explicitly remove any border */
+        }
+        
+        .site-header * {
+            color: white;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-right: auto;
+        }
+        
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .site-header a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+<header class="site-header">
+    <div class="site-identity">
+      <a href="#"><img src="assets/image.png" alt="Owl Logo" /></a>
+      <h1><a href="#">OmniGrep</a></h1>
+    </div>  
+  </header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Engineering tools for the <span class="highlight nowrap"><a href="https://ia.samaltman.com/" target="_blank" rel="noopener noreferrer">intelligence age</a></span></h1>
+        <p class="lead">Transform your software development workflow with AI-powered tools that understand your <span class="highlight">codebase at a deeper level</span></p>
+        <form class="email-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Get Early Access</button>
+        </form>
     </div>
-    <form id="waitlistForm" style="display: none;">
-      <input type="email" id="emailInput" placeholder="Enter your email" required>
-      <button type="submit" class="button">Submit</button>
-    </form>
-    <p id="waitlistMessage"></p>
-  </div>
-
-  <script>
-    document.getElementById('waitlistButton').addEventListener('click', function (e) {
-      e.preventDefault();
-      document.getElementById('waitlistForm').style.display = 'block';
-      this.style.display = 'none';
-    });
-
-    document.getElementById('waitlistForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('emailInput').value;
-
-      var scriptURL = 'https://script.google.com/macros/s/AKfycbwfwZFqy0EvFUSUMn-a103ckit8G_Q6AyxZ9yTQzs8RtC_oTGvzFcZKTyMrluSyE0aD/exec';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({email: email})
-      })
-        .then(response => {
-          document.getElementById('waitlistMessage').textContent = 'Thank you for joining our waitlist!';
-          document.getElementById('waitlistForm').reset();
-          document.getElementById('waitlistForm').style.display = 'none';
-        })
-        .catch(error => {
-          document.getElementById('waitlistMessage').textContent = 'There was an error. Please try again later.';
-        });
-    });
-  </script>
+</section>
 </body>
-
 </html>
