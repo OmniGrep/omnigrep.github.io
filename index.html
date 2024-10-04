@@ -343,6 +343,10 @@
         .site-header a:hover {
             text-decoration: underline;
         }
+
+        #waitlistMessage {
+            margin-top: 20px;
+        }
     </style>
 
 <header class="site-header">
@@ -350,16 +354,51 @@
       <a href="#"><img src="assets/image.png" alt="Owl Logo" /></a>
       <h1><a href="#">OmniGrep</a></h1>
     </div>  
-  </header>
-<section class="hero">
-    <div class="hero-content">
-        <h1>Engineering tools for the <span class="highlight nowrap"><a href="https://ia.samaltman.com/" target="_blank" rel="noopener noreferrer">intelligence age</a></span></h1>
-        <p class="lead">Transform your software development workflow with AI-powered tools that understand your <span class="highlight">codebase at a deeper level</span></p>
-        <form class="email-form">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Get Early Access</button>
-        </form>
-    </div>
-</section>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Engineering tools for the <span class="highlight nowrap"><a href="https://ia.samaltman.com/" target="_blank" rel="noopener noreferrer">intelligence age</a></span></h1>
+            <p class="lead">Transform your software development workflow with AI-powered tools that understand your <span class="highlight">codebase at a deeper level</span></p>
+            <form class="email-form" id="waitlistForm">
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+            <p id="waitlistMessage"></p>
+        </div>
+    </section>
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            var email = document.getElementById('emailInput').value;
+            var submitButton = this.querySelector('button');
+
+            // Change button text to indicate loading
+            submitButton.textContent = 'Adding to waitlist...';
+
+            // Google Apps Script URL (replace with your actual URL)
+            var scriptURL = 'https://script.google.com/macros/s/AKfycbwfwZFqy0EvFUSUMn-a103ckit8G_Q6AyxZ9yTQzs8RtC_oTGvzFcZKTyMrluSyE0aD/exec';
+
+            // Sending email to Google Apps Script
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => {
+                document.getElementById('waitlistMessage').textContent = 'Thank you for joining our waitlist!';
+                document.getElementById('waitlistForm').reset();
+                submitButton.textContent = 'Get Early Access'; // Reset button text
+            })
+            .catch(error => {
+                document.getElementById('waitlistMessage').textContent = 'There was an error. Please try again later.';
+                submitButton.textContent = 'Get Early Access'; // Reset button text
+            });
+        });
+    </script>
 </body>
 </html>
